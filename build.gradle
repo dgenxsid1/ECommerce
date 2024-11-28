@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.javaApp'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-gradle-plugin
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.2.12'
+    implementation 'org.springframework.boot:spring-boot-starter:3.2.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.12'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.12'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
