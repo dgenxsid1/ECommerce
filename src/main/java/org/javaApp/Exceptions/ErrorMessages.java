@@ -1,14 +1,13 @@
 package org.javaApp.Exceptions;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public enum ErrorMessages {
-    PRODUCT_NOT_FOUND("Product Not Found");
+    PRODUCT_NOT_FOUND("Product Not Found"),
+    NAME_REQUIRED("Name is Required"),
+    DESCRIPTION_LENGTH("Description must be 20 characters"),
+    PRICE_CANNOT_BE_NEGATIVE("Price cannot be negative");
 
     private final String message;
 

@@ -1,5 +1,6 @@
 package org.javaApp.Service;
 
+import org.javaApp.Exceptions.ErrorMessages;
 import org.javaApp.Exceptions.ProductNotFoundException;
 import org.javaApp.Model.Product;
 import org.javaApp.Model.ProductDTO;

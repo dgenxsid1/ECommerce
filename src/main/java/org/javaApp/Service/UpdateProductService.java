@@ -1,11 +1,12 @@
 package org.javaApp.Service;
 
+import org.javaApp.Exceptions.ErrorMessages;
 import org.javaApp.Exceptions.ProductNotFoundException;
 import org.javaApp.Model.Product;
 import org.javaApp.Model.ProductDTO;
 import org.javaApp.Model.UpdateProductCommand;
 import org.javaApp.Repository.ProductRepository;
-import org.springframework.http.HttpStatus;
+import org.javaApp.Validators.ProductValidation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
       if(productOptional.isPresent()){
           Product product = command.getProduct();
           product.setId(command.getId());
+          ProductValidation.execute(product);
           productRepository.save(product);
           return ResponseEntity.ok(new ProductDTO(product));
       }

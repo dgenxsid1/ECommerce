@@ -19,10 +19,18 @@ public class GlobalExceptionHandler {
     public ErrorResponse handleProductNotFoundException(ProductNotFoundException exception){
         System.out.println(exception.getMessage());
         return new ErrorResponse(exception.getMessage());
-
         }
 
+    @ExceptionHandler(ProductNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ErrorResponse handleProductNotValidException(ProductNotValidException exception){
+        System.out.println(exception.getMessage());
+        return new ErrorResponse(exception.getMessage());
     }
+}
+
+
 
 
 //
