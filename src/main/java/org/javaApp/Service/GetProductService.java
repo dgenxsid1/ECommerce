@@ -1,5 +1,6 @@
 package org.javaApp.Service;
 
+import org.javaApp.Exceptions.ProductNotFoundException;
 import org.javaApp.Model.Product;
 import org.javaApp.Model.ProductDTO;
 import org.javaApp.Repository.ProductRepository;
@@ -29,7 +30,8 @@ public class GetProductService implements Query<Integer, ProductDTO> {
         if (productOptional.isPresent()) {
             return ResponseEntity.ok(new ProductDTO(productOptional.get()));
         }
-        return null;
+
+        throw new ProductNotFoundException();
     }
 }
 

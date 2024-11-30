@@ -1,5 +1,6 @@
 package org.javaApp.Service;
 
+import org.javaApp.Exceptions.ProductNotFoundException;
 import org.javaApp.Model.Product;
 import org.javaApp.Model.ProductDTO;
 import org.javaApp.Model.UpdateProductCommand;
@@ -23,6 +24,6 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
           productRepository.save(product);
           return ResponseEntity.ok(new ProductDTO(product));
       }
-      return null;
+        throw new ProductNotFoundException();
     }
 }

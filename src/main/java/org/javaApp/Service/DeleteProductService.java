@@ -1,5 +1,6 @@
 package org.javaApp.Service;
 
+import org.javaApp.Exceptions.ProductNotFoundException;
 import org.javaApp.Model.Product;
 import org.javaApp.Repository.ProductRepository;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,6 @@ public class DeleteProductService implements Command<Integer, Void>{
             productRepository.deleteById(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
-        return null;
-
+        throw new ProductNotFoundException();
     }
 }
