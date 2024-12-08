@@ -16,8 +16,14 @@ public class ProductValidation {
             throw new ProductNotValidException(ErrorMessages.DESCRIPTION_LENGTH.getMessage());
         }
 
-        if(product.getPrice() == null || product.getPrice() < 0.00){
+        if(product.getPrice() < 0.00){
             throw new ProductNotValidException(ErrorMessages.PRICE_CANNOT_BE_NEGATIVE.getMessage());
+        }
+
+
+        // code will throw Null Pointer exception and not come here.
+        if(product.getPrice() == null){
+            throw new ProductNotValidException(ErrorMessages.PRICE_CANNOT_BE_NULL.getMessage());
         }
 
     }

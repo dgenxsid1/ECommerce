@@ -4,7 +4,6 @@ import org.javaApp.Model.ProductDTO;
 import org.javaApp.Model.UpdateProductCommand;
 import org.javaApp.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,6 +59,11 @@ public class ProductController {
     @DeleteMapping("/product/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable("id") Integer id){
         return deleteProductService.execute(id);
+    }
+
+    @GetMapping("/product/searchPriceRange")
+    public ResponseEntity<List<ProductDTO>> searchByPriceBetweenTwoPrices(@RequestParam("minPrice") Double minPrice, @RequestParam("maxPrice") Double maxPrice){
+        return searchProductService.searchByPriceBetween(minPrice, maxPrice);
     }
 
 

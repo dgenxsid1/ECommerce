@@ -16,6 +16,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     //spring data Jpa
     List<Product> findByNameContaining(String name);
+    List<Product> findByPriceBetween(Double minPrice, Double maxPrice);
+//    List<Product> findByPriceGreaterThan(Double price);
+//    List<Product> findByPriceLesserThan(Double price);
+
 
     //JPQL --> this is dB agnostic, the query gets converted to whatever dB we using(SQL, Postgres etc)
 
